@@ -27,18 +27,12 @@ async function getMusic(value){
        startTime.innerText=`0:00`;
        endTime.innerText=`${minutes}:${seconds}`;
        progress.max=duration;
-
     })
-    
-    
 }
 getMusic(value);
 
-
-// pause TO play
-
+// Pause to Play
 pausebtn.addEventListener('click',(e)=>{
-
     if(k==1){
         pausebtn.style.display="none";
         playbtn.style.display="block";
@@ -64,46 +58,31 @@ pausebtn.addEventListener('click',(e)=>{
                 else{
                    startTime.innerText=`${min}:${second}`;
                 }
-
             },1000)
-          
         }
-
-    }
-   
-    
+    }  
 })
 
 // When Changing the Range Bar
-
 progress.addEventListener("change",()=>{
     // If audio is paused and user changes audio scroller then audio should not play.
     if(k==1){
-        audio.pause();
-        
+        audio.pause();  
     }
     audio.currentTime=progress.value;
-    
 })
 
-
-// play TO pause
-
+// Play to Pause
 playbtn.addEventListener('click',()=>{
     if(k==0){
         pausebtn.style.display="block";
         playbtn.style.display="none";
         k=1;
         audio.pause();
-
-
     }
- 
 })
 
-    
 // Forward Button
-
 forwardbtn.addEventListener('click',()=>{
     if(value>=0 && value<14){
         getMusic(++value);
@@ -121,12 +100,9 @@ forwardbtn.addEventListener('click',()=>{
     else{
         alert("End Of Playlist");
     }
-
 })
 
-
 // Backward Button
-
 backwardbtn.addEventListener('click',()=>{
     if(value>0 && value<=14){
         getMusic(--value);
@@ -143,6 +119,4 @@ backwardbtn.addEventListener('click',()=>{
     else{
         alert("End Of Playlist");
     }
- 
-    
 })
